@@ -7,6 +7,11 @@ pipeline {
         dockerImage = ''
     }
     stages {
+        stage('Check Docker') {
+            steps {
+                sh 'docker --version'
+            }
+        }
         stage('Install Dependencies') {
             steps {
                 sh 'npm install'
