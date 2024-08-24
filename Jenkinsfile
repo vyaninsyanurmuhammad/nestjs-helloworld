@@ -30,9 +30,9 @@ pipeline {
         }
         stage('Deploy Image') {
             steps {
-                sh 'sudo docker stop hello_world || true'
-                sh 'sudo docker rm hello_world || true'
-                sh 'sudo docker run -d --name hello_world -p 8001:8001 vyaninsyanurmuhammad/hello_world:latest'
+                sh 'docker stop hello_world || true'
+                sh 'docker rm hello_world || true'
+                sh 'docker run -d --name hello_world -p 8001:8001 vyaninsyanurmuhammad/hello_world:latest'
             }
         }
     }
