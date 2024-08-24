@@ -22,9 +22,9 @@ pipeline {
                 sh 'docker build . -t vyaninsyanurmuhammad/hello_world:latest'
             }
         }
-        stage('Push') {
-            steps {
-                sh 'docker login -u vyaninsyanurmuhammad -p A1F2I3N4Z5Aasd!'
+        stage('Push Image') {
+            withCredentials([usernamePassword(credentialsId: 'dockerHubVyan', passwordVariable: 'dockerHubVyanPassword', usernameVariable: 'dockerHubVyanUser')]) {
+                sh "docker login -u ${env.dockerHubVyanUser} -p ${env.dockerHubVyanPassword}"
                 sh 'docker push vyaninsyanurmuhammad/hello_world:latest'
             }
         }
