@@ -2,11 +2,6 @@ pipeline {
     agent any
     tools { nodejs 'node' }
     stages {
-        stage('Install Git') {
-            steps {
-                sh 'apt-get update && apt-get install -y git'
-            }
-        }
         stage('Install Dependencies') {
             steps {
                 sh 'npm install'
