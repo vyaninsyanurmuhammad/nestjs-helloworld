@@ -11,7 +11,7 @@ pipeline {
             steps {
                 sh 'npm run test'
             }
-        }    
+        }
         stage('Check Docker') {
             steps {
                 sh 'docker --version'
@@ -23,9 +23,11 @@ pipeline {
             }
         }
         stage('Push Image') {
-            withCredentials([usernamePassword(credentialsId: 'dockerHubVyan', passwordVariable: 'dockerHubVyanPassword', usernameVariable: 'dockerHubVyanUser')]) {
-                sh "docker login -u ${env.dockerHubVyanUser} -p ${env.dockerHubVyanPassword}"
-                sh 'docker push vyaninsyanurmuhammad/hello_world:latest'
+            steps {
+                withCredentials([usernamePassword(credentialsId: 'dockerHubVyan', passwordVariable: 'dockerHubVyanPassword', usernameVariable: 'dockerHubVyanUser')]) {
+                    sh "docker login -u ${env.dockerHubVyanUser} -p ${env.dockerHubVyanPassword}"
+                    sh 'docker push vyaninsyanurmuhammad/hello_world:latest'
+                }
             }
         }
         stage('Deploy Image') {
