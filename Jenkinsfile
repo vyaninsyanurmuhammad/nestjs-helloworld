@@ -19,13 +19,13 @@ pipeline {
         }
         stage('Building Image') {
             steps {
-                sh 'sudo docker build . -t vyaninsyanurmuhammad/hello_world:latest'
+                sh 'docker build . -t vyaninsyanurmuhammad/hello_world:latest'
             }
         }
         stage('Push') {
             steps {
-                sh 'sudo docker login -u vyaninsyanurmuhammad -p A1F2I3N4Z5Aasd'
-                sh 'sudo docker push vyaninsyanurmuhammad/hello_world:latest'
+                sh 'docker login -u vyaninsyanurmuhammad -p A1F2I3N4Z5Aasd'
+                sh 'docker push vyaninsyanurmuhammad/hello_world:latest'
             }
         }
         stage('Deploy Image') {
