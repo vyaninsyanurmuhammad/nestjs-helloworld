@@ -24,7 +24,7 @@ pipeline {
         }
         stage('Push') {
             steps {
-                sh 'docker login -u vyaninsyanurmuhammad -p A1F2I3N4Z5Aasd'
+                sh 'docker login -u vyaninsyanurmuhammad -p A1F2I3N4Z5Aasd!'
                 sh 'docker push vyaninsyanurmuhammad/hello_world:latest'
             }
         }
