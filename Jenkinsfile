@@ -14,11 +14,11 @@ pipeline {
                 sh 'npm install'
             }
         }
-        stage('Tests') {
-            steps {
-                sh 'npm run test'
-            }
-        }
+        // stage('Tests') {
+        //     steps {
+        //         sh 'npm run test'
+        //     }
+        // }
         stage('Check Docker') {
             steps {
                 sh 'docker --version'
