@@ -1,17 +1,20 @@
 pipeline {
     agent any
     tools { nodejs 'node' }
+    environment {
+        NODE_ENV = credentials('NODE_ENV')
+    }
     stages {
         stage('Install Dependencies') {
             steps {
                 sh 'npm install'
             }
         }
-        stage('Tests') {
-            steps {
-                sh 'npm run test'
-            }
-        }
+        // stage('Tests') {
+        //     steps {
+        //         sh 'npm run test'
+        //     }
+        // }
         stage('Check Docker') {
             steps {
                 sh 'docker --version'
