@@ -5,7 +5,7 @@ pipeline {
         stage('Define Env') {
             steps {
                 withCredentials([file(credentialsId: 'hello_world_env', variable: 'ENV_FILE')]) {
-                    sh 'cp $WORKSPACE'
+                    sh 'cp $ENV_FILE $WORKSPACE'
                 }
             }
         }
